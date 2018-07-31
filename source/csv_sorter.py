@@ -5,7 +5,7 @@ def read_csv(filename):
     return df
 
 def write_csv(data, File):
-    data.to_csv(File, encoding='utf-8')
+    data.to_csv(File.replace('.csv','sorted.csv'), encoding='utf-8')
     
 def Sort_By(df, F):
     headers = list(df)
@@ -26,5 +26,5 @@ def get_idx(h):
     
         
 if __name__ == '__main__':
-    file = "Test.csv"
+    file = "../sample/Test.csv"
     Sort_By(read_csv(file), file)

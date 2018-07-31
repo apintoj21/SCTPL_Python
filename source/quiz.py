@@ -34,5 +34,5 @@ def get_questions(filename):
     return questions, answers
 
 if __name__ == '__main__':
-    q, a = get_questions('Q.csv')
+    q, a = get_questions('../sample/Q.csv')
     take_quiz(q, a)
