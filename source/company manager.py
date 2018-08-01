@@ -1,57 +1,37 @@
-
-class Employee:
+class Employee():
     count = 0
-    record={}
-    def __init__(self,salary,etype):
-        self.etype = etype
-        self.salary = salary
-        Employee.count += 1
-        Employee.record[Employee.count] = [self.etype,self.salary]
-    
-
-    def add_employee(self,etype,salary):
-        Employee.record[Employee.count+1] = [etype,salary]
+    def __init__(self, salary, emp, repID, eID):
+        self.salary=salary
+        self.EType = emp
+        self.reporting_to = repID
         
-    def del_employee(self,Id):
-        del(Employee.record[Id])
-    
+    def add (self,salary, emp, repID):
+        self.eID = Employee.count+1
+
         
 
+         
 class HourlyEmployee(Employee):
-    def __init__(self, salary, no_hours):
-            Employee.__init__(self, Id, salary)
-        self._manager = manager
-
-    def getManager(self):
-        return self._manager
-
+    def __init__(self,hours, salary, managerID,etype='Hourly'):
+        Employee.__init__(self,salary,etype,managerID)
+        self.payment=(self.salary)*(self.hour)
+        
+class SalariedEmployee(Employee):
+    def __init__(self, salary, managerID,etype='Salaried'):
+        Employee.__init__(self,salary,etype,managerID)
+        self.payment=(self.salary)/12    
+        
+class Manager(Employee):
+    def __init__(self,salary,executiveID,etype='Manager'):
+        Employee.__init__(self, salary, executiveID,etype='Manager')
+        self.payment=(self.salary)/12    
+        
 class Executive(Employee):
-    def __init__(self, Id, wage, yearlyBonus):
-        Employee.__init__(self, Id, wage) 
-        self._yearlyBonus = yearlyBonus
-
-    def wage(self):
-        return Employee.wage(self)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def __init__(self,name,salary,None,etype='Executive', bonus):
+        Employee.__init__(self)
+        self.bonus = bonus
+        self.payment = (self.salary)/12 + bonus
+        
+class Manager(Employee):
+    def __init__(self,name,salary):
+super(Manager,self).__init__(name,salary)
